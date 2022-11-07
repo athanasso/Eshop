@@ -1,5 +1,7 @@
 package com.travelcompany.eshop.model;
 
+import com.travelcompany.eshop.exception.CustomerEmailException;
+
 public class Customer {
     private int id;
     private String name;
@@ -8,10 +10,10 @@ public class Customer {
     private String nationality;
     private String category;
 
-    public Customer(int id, String name, String email, String address, String nationality, String category){
+    public Customer(int id, String name, String email, String address, String nationality, String category) throws CustomerEmailException{
         this.id = id;
         this.name = name;
-        this.email = email;
+        setEmail(email);
         this.address = address;
         this.nationality = nationality;
         this.category = category;
@@ -37,7 +39,9 @@ public class Customer {
         return email;
     }
 
-    public void setEmail(String email) {
+     public void setEmail(String email) throws CustomerEmailException {
+        if (email.contains("travelcompany.com"))
+            throw new CustomerEmailException("Employees can't be customers!");
         this.email = email;
     }
 

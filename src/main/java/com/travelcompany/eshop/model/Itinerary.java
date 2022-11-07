@@ -1,5 +1,7 @@
 package com.travelcompany.eshop.model;
 
+import com.travelcompany.eshop.exception.ItineraryMissingAirportCodeException;
+
 public class Itinerary {
     private int id;
     private String departureAirportCode;
@@ -8,10 +10,10 @@ public class Itinerary {
     private String airline;
     private int basicPrice;
 
-    public Itinerary(int id, String departureAirportCode, String destinationAirportCode, String departureDate, String airline, int basicPrice) {
+    public Itinerary(int id, String departureAirportCode, String destinationAirportCode, String departureDate, String airline, int basicPrice) throws ItineraryMissingAirportCodeException{
         this.id = id;
-        this.departureAirportCode = departureAirportCode;
-        this.destinationAirportCode = destinationAirportCode;
+        setDepartureAirportCode(departureAirportCode);
+        setDestinationAirportCode(destinationAirportCode);
         this.departureDate = departureDate;
         this.airline = airline;
         this.basicPrice = basicPrice;
@@ -29,7 +31,9 @@ public class Itinerary {
         return departureAirportCode;
     }
 
-    public void setDepartureAirportCode(String departureAirportCode) {
+    public void setDepartureAirportCode(String departureAirportCode) throws ItineraryMissingAirportCodeException{
+        if (departureAirportCode == null)
+            throw new ItineraryMissingAirportCodeException("The departure airport code is missing!");
         this.departureAirportCode = departureAirportCode;
     }
 
@@ -37,7 +41,9 @@ public class Itinerary {
         return destinationAirportCode;
     }
 
-    public void setDestinationAirportCode(String destinationAirportCode) {
+    public void setDestinationAirportCode(String destinationAirportCode) throws ItineraryMissingAirportCodeException{
+        if (destinationAirportCode == null)
+            throw new ItineraryMissingAirportCodeException("The destination airport code is missing!");
         this.destinationAirportCode = destinationAirportCode;
     }
 
