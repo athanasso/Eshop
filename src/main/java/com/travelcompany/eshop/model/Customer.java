@@ -3,6 +3,7 @@ package com.travelcompany.eshop.model;
 import com.travelcompany.eshop.exception.CustomerEmailException;
 
 public class Customer {
+
     private int id;
     private String name;
     private String email;
@@ -10,13 +11,17 @@ public class Customer {
     private String nationality;
     private String category;
 
-    public Customer(int id, String name, String email, String address, String nationality, String category) throws CustomerEmailException{
+    public Customer(int id, String name, String email, String address, String nationality, String category) throws CustomerEmailException {
         this.id = id;
         this.name = name;
         setEmail(email);
         this.address = address;
         this.nationality = nationality;
         this.category = category;
+    }
+
+    public Customer() {
+
     }
 
     public int getId() {
@@ -39,9 +44,10 @@ public class Customer {
         return email;
     }
 
-     public void setEmail(String email) throws CustomerEmailException {
-        if (email.contains("travelcompany.com"))
+    public void setEmail(String email) throws CustomerEmailException {
+        if (email.contains("travelcompany.com")) {
             throw new CustomerEmailException("Employees can't be customers!");
+        }
         this.email = email;
     }
 
@@ -68,5 +74,5 @@ public class Customer {
     public void setCategory(String category) {
         this.category = category;
     }
-    
-}     
+
+}

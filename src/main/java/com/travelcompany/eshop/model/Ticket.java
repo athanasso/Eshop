@@ -1,6 +1,7 @@
 package com.travelcompany.eshop.model;
 
 public class Ticket {
+
     private int id;
     private int passengerId;
     private int itineraryId;
@@ -13,6 +14,10 @@ public class Ticket {
         this.itineraryId = itineraryId;
         this.paymentMethod = paymentMethod;
         this.paymentAmount = paymentAmount;
+    }
+
+    public Ticket() {
+
     }
 
     public int getId() {
@@ -54,6 +59,5 @@ public class Ticket {
     public void setPaymentAmount(int paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
-    
-    
+
 }
