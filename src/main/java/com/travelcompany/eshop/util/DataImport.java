@@ -8,7 +8,7 @@ import com.travelcompany.eshop.repository.TicketRepository;
 import com.travelcompany.eshop.repository.impl.CustomerRepositoryImpl;
 import com.travelcompany.eshop.repository.impl.ItineraryRepositoryImpl;
 import com.travelcompany.eshop.repository.impl.TicketRepositoryImpl;
-import static com.travelcompany.eshop.util.DiscountCounter.DiscountCounter;
+import static com.travelcompany.eshop.services.TicketService.DiscountCounter;
 
 public class DataImport {
 

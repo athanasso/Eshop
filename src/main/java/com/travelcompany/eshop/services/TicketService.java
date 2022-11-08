@@ -1,11 +1,11 @@
-package com.travelcompany.eshop.util;
+package com.travelcompany.eshop.services;
 
 import com.travelcompany.eshop.model.Customer;
 import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.model.Ticket;
 import java.math.BigDecimal;
 
-public class DiscountCounter {
+public class TicketService {
 
     /**
      * Returns the ticket that has been made.
@@ -16,7 +16,7 @@ public class DiscountCounter {
      * @param paymentMethod takes the payment method.
      * @return the ticket with the appropriate parameters.
      */
-    protected static Ticket DiscountCounter(int ticketId, Customer customer, Itinerary itinerary, String paymentMethod) {
+    public static Ticket DiscountCounter(int ticketId, Customer customer, Itinerary itinerary, String paymentMethod) {
         // Creating Ticket.
         String categoryOfCustomer = customer.getCategory();
         BigDecimal basicPriceOfTicket = new BigDecimal(itinerary.getBasicPrice());
