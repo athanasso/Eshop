@@ -1,6 +1,10 @@
 package com.travelcompany.eshop.services;
 
+import com.travelcompany.eshop.enums.Category;
+import static com.travelcompany.eshop.enums.Category.Business;
+import static com.travelcompany.eshop.enums.Category.Individual;
 import com.travelcompany.eshop.enums.PaymentMethod;
+import static com.travelcompany.eshop.enums.PaymentMethod.CreditCard;
 import com.travelcompany.eshop.model.Customer;
 import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.model.Ticket;
@@ -19,18 +23,18 @@ public class TicketService {
      */
     public static Ticket DiscountCounter(int ticketId, Customer customer, Itinerary itinerary, PaymentMethod paymentMethod) {
         // Creating Ticket.
-        String categoryOfCustomer = customer.getCategory().toString();
+        Category categoryOfCustomer = customer.getCategory();
         BigDecimal basicPriceOfTicket = new BigDecimal(itinerary.getBasicPrice());
 
         //  Checking for Ordering and Discount policy based on Customer Category and Payment Method.
         BigDecimal discount = new BigDecimal(1);
-        if (categoryOfCustomer.equals("Business")) {
+        if (categoryOfCustomer.equals(Business)) {
             discount = discount.add(new BigDecimal("-0.1"));
         }
-        if (categoryOfCustomer.equals("Individual")) {
+        if (categoryOfCustomer.equals(Individual)) {
             discount = discount.add(new BigDecimal("0.2"));
         }
-        if (paymentMethod.equals("Credit Card")) {
+        if (paymentMethod.equals(CreditCard)) {
             discount = discount.add(new BigDecimal("-0.1"));
         }
 
