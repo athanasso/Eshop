@@ -50,7 +50,7 @@ public class DataImport {
                 String[] words = customerString.split(",");
                 Customer customer = new Customer();
                 customer.setId(Integer.parseInt(words[0]));
-                customer.setName(words[1]);
+                customer.setName(words[1].strip());               
                 customer.setEmail(words[2].trim());
                 customer.setAddress(words[3].trim());
                 customer.setNationality(words[4].trim());
@@ -79,7 +79,7 @@ public class DataImport {
                 itinerary.setId(Integer.parseInt(words[0]));
                 itinerary.setDepartureAirportCode(words[1].trim());
                 itinerary.setDestinationAirportCode(words[2].trim());
-                itinerary.setDepartureDate(words[3]);
+                itinerary.setDepartureDate(words[3].strip());
                 itinerary.setAirline(words[4].trim());
                 itinerary.setBasicPrice(Integer.parseInt(words[5].trim()));
 
