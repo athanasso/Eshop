@@ -1,5 +1,6 @@
 package com.travelcompany.eshop.services;
 
+import com.travelcompany.eshop.enums.PaymentMethod;
 import com.travelcompany.eshop.model.Customer;
 import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.model.Ticket;
@@ -16,9 +17,9 @@ public class TicketService {
      * @param paymentMethod takes the payment method.
      * @return the ticket with the appropriate parameters.
      */
-    public static Ticket DiscountCounter(int ticketId, Customer customer, Itinerary itinerary, String paymentMethod) {
+    public static Ticket DiscountCounter(int ticketId, Customer customer, Itinerary itinerary, PaymentMethod paymentMethod) {
         // Creating Ticket.
-        String categoryOfCustomer = customer.getCategory();
+        String categoryOfCustomer = customer.getCategory().toString();
         BigDecimal basicPriceOfTicket = new BigDecimal(itinerary.getBasicPrice());
 
         //  Checking for Ordering and Discount policy based on Customer Category and Payment Method.

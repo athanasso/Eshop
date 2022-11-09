@@ -1,5 +1,6 @@
 package com.travelcompany.eshop.model;
 
+import com.travelcompany.eshop.enums.Category;
 import com.travelcompany.eshop.exception.CustomerEmailException;
 
 public class Customer {
@@ -9,9 +10,9 @@ public class Customer {
     private String email;
     private String address;
     private String nationality;
-    private String category;
+    private Category category;
 
-    public Customer(int id, String name, String email, String address, String nationality, String category) throws CustomerEmailException {
+    public Customer(int id, String name, String email, String address, String nationality, Category category) throws CustomerEmailException {
         this.id = id;
         this.name = name;
         setEmail(email);
@@ -67,11 +68,11 @@ public class Customer {
         this.nationality = nationality;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

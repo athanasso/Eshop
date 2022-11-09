@@ -1,5 +1,8 @@
 package com.travelcompany.eshop.util;
 
+import com.travelcompany.eshop.enums.Category;
+import static com.travelcompany.eshop.enums.PaymentMethod.Cash;
+import static com.travelcompany.eshop.enums.PaymentMethod.CreditCard;
 import com.travelcompany.eshop.model.Customer;
 import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.repository.CustomerRepository;
@@ -54,7 +57,7 @@ public class DataImport {
                 customer.setEmail(words[2].trim());
                 customer.setAddress(words[3].trim());
                 customer.setNationality(words[4].trim());
-                customer.setCategory(words[5].trim());
+                customer.setCategory(Category.valueOf(words[5].trim()));
 
                 customers.createCustomer(customer);
             } catch (Exception e) {
@@ -111,23 +114,23 @@ public class DataImport {
         // Since we go by hand there is no need for checking for customers ids.
         try {
             // Ticket1
-            tickets.createTicket(DiscountCounter(1, customers.readCustomer(1), itineraries.readItinerary(2), "Cash"));
+            tickets.createTicket(DiscountCounter(1, customers.readCustomer(1), itineraries.readItinerary(2), Cash));
             // Ticket2
-            tickets.createTicket(DiscountCounter(2, customers.readCustomer(2), itineraries.readItinerary(3), "Cash"));
+            tickets.createTicket(DiscountCounter(2, customers.readCustomer(2), itineraries.readItinerary(3), Cash));
             // Ticket3
-            tickets.createTicket(DiscountCounter(3, customers.readCustomer(3), itineraries.readItinerary(3), "Credit Cart"));
+            tickets.createTicket(DiscountCounter(3, customers.readCustomer(3), itineraries.readItinerary(3), CreditCard));
             // Ticket4
-            tickets.createTicket(DiscountCounter(4, customers.readCustomer(2), itineraries.readItinerary(4), "Credit Cart"));
+            tickets.createTicket(DiscountCounter(4, customers.readCustomer(2), itineraries.readItinerary(4), CreditCard));
             // Ticket5
-            tickets.createTicket(DiscountCounter(5, customers.readCustomer(3), itineraries.readItinerary(4), "Cash"));
+            tickets.createTicket(DiscountCounter(5, customers.readCustomer(3), itineraries.readItinerary(4), Cash));
             // Ticket6
-            tickets.createTicket(DiscountCounter(6, customers.readCustomer(4), itineraries.readItinerary(7), "Credit Cart"));
+            tickets.createTicket(DiscountCounter(6, customers.readCustomer(4), itineraries.readItinerary(7), CreditCard));
             // Ticket7
-            tickets.createTicket(DiscountCounter(7, customers.readCustomer(5), itineraries.readItinerary(7), "Credit Cart"));
+            tickets.createTicket(DiscountCounter(7, customers.readCustomer(5), itineraries.readItinerary(7), CreditCard));
             // Ticket8
-            tickets.createTicket(DiscountCounter(8, customers.readCustomer(2), itineraries.readItinerary(10), "Cash"));
+            tickets.createTicket(DiscountCounter(8, customers.readCustomer(2), itineraries.readItinerary(10), Cash));
             // Ticket9
-            tickets.createTicket(DiscountCounter(9, customers.readCustomer(1), itineraries.readItinerary(3), "Cash"));
+            tickets.createTicket(DiscountCounter(9, customers.readCustomer(1), itineraries.readItinerary(3), Cash));
         }
         catch (Exception e) {
             System.out.println("Received the message, '" + e.getMessage() + "'.\n");

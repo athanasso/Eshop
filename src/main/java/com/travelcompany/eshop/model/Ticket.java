@@ -1,14 +1,16 @@
 package com.travelcompany.eshop.model;
 
+import com.travelcompany.eshop.enums.PaymentMethod;
+
 public class Ticket {
 
     private int id;
     private int passengerId;
     private int itineraryId;
-    private String paymentMethod;
+    private PaymentMethod paymentMethod;
     private int paymentAmount;
 
-    public Ticket(int id, int passengerId, int itineraryId, String paymentMethod, int paymentAmount) {
+    public Ticket(int id, int passengerId, int itineraryId, PaymentMethod paymentMethod, int paymentAmount) {
         this.id = id;
         this.passengerId = passengerId;
         this.itineraryId = itineraryId;
@@ -44,11 +46,11 @@ public class Ticket {
         this.itineraryId = itineraryId;
     }
 
-    public String getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
