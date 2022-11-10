@@ -1,3 +1,4 @@
+package com.travelcompany.eshop.services;
 
 import com.travelcompany.eshop.enums.Category;
 import static com.travelcompany.eshop.enums.Category.Business;
