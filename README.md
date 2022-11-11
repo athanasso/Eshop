@@ -23,6 +23,8 @@ The TravelCompany program implements the below:
   * List of the total offered itineraries per destination and departure.
   * List of the customers who purchased the most tickets and the number of purchases.
   * List of the customers who have not purchased any tickets.
+* Extra:
+  * Collection reports saved in files.
 
 ---
 ### Requirements
