@@ -26,7 +26,7 @@ public class FileReports {
      * @param tickets all tickets of TravelCompany.
      */
     public static void totalCostAndNumberOfTicketsToFile(TicketRepository tickets) {
-        File file = new File("ΤotalCostAndNumberOfTickets.csv");
+        File file = new File("ΤotalCostAndNumberOfTickets.txt");
 
         // Creating Report.
         System.out.println("List of the total number and cost of tickets for all customers are being saves into file 'ΤotalCostAndNumberOfTickets.csv'");
@@ -51,7 +51,7 @@ public class FileReports {
      * @param itineraries all itineraries of TravelCompany.
      */
     public static void totalItinerariesPerDestinationAndDepartureToFile(ItineraryRepository itineraries) {
-        File file = new File("TotalItinerariesPerDestinationAndDeparture.csv");
+        File file = new File("TotalItinerariesPerDestinationAndDeparture.txt");
 
         // Creating Report.
         System.out.println("List of the total offered itineraries per destination and departure are being saves into file 'TotalItinerariesPerDestinationAndDeparture.csv'");
@@ -96,7 +96,7 @@ public class FileReports {
      * @param customers all the customers of TravelCompany.
      */
     public static void customersWithMostTicketsAndCostOfPurchasesToFile(TicketRepository tickets, CustomerRepository customers) {
-        File file = new File("CustomersWithMostTicketsAndCostOfPurchases.csv");
+        File file = new File("CustomersWithMostTicketsAndCostOfPurchases.txt");
 
         // Creating Report.
         System.out.println("List of the customers who purchased the most tickets and the cost of purchases are being saves into file 'CustomersWithMostTicketsAndCostOfPurchases.csv'");
@@ -149,7 +149,7 @@ public class FileReports {
      * @param customers all the customers of TravelCompany.
      */
     public static void customersWithNoPurchasesToFile(TicketRepository tickets, CustomerRepository customers) {
-        File file = new File("CustomersWithNoPurchases.csv");
+        File file = new File("CustomersWithNoPurchases.txt");
 
         // Creating Report.
         System.out.println("List of the customers who have not purchased any tickets are being saves into file 'CustomersWithNoPurchases.csv'");
