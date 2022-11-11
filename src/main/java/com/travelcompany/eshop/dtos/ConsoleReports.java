@@ -6,52 +6,14 @@ import com.travelcompany.eshop.model.Ticket;
 import com.travelcompany.eshop.repository.CustomerRepository;
 import com.travelcompany.eshop.repository.ItineraryRepository;
 import com.travelcompany.eshop.repository.TicketRepository;
+import static com.travelcompany.eshop.services.TicketService.collectionOfTicketsWithCustomers;
+import static com.travelcompany.eshop.services.TicketService.collectionOfTicketsWithPaymentAmount;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ConsoleReports {
     
-    /**
-     * Returns a HashMap with key the customer id and value the cost of tickets that they purchased.
-     *
-     * @param tickets all the tickets of TravelCompany.
-     * @return a HashMap with customerId and cost of tickets that purchased each.
-     */
-    public static HashMap<Integer, Integer> collectionOfTicketsWithPaymentAmount(TicketRepository tickets) {
-        // Creating collection of HashMap.
-        HashMap<Integer, Integer> hashmap = new HashMap<>();
-        for (Ticket ticket : tickets.readTickets()) {
-            if (hashmap.containsKey(ticket.getPassengerId())){
-                int value = hashmap.get(ticket.getPassengerId());
-                hashmap.put(ticket.getPassengerId(), value + ticket.getPaymentAmount());
-            } else {
-                hashmap.put(ticket.getPassengerId(), ticket.getPaymentAmount());
-            }
-        }
-        return hashmap;
-    }
-
-    /**
-     * Returns a HashMap with key the customer id and value the number of tickets that they purchased.
-     *
-     * @param tickets all the tickets of TravelCompany.
-     * @return a HashMap with customerId and number of tickets that purchased each.
-     */
-    public static HashMap<Integer, Integer> collectionOfTicketsWithCustomers(TicketRepository tickets) {
-        // Creating collection of HashMap.
-        HashMap<Integer, Integer> hashmap = new HashMap<>();
-        for (Ticket ticket : tickets.readTickets()) {
-            if (hashmap.containsKey(ticket.getPassengerId())){
-                int value = hashmap.get(ticket.getPassengerId());
-                hashmap.put(ticket.getPassengerId(), value + 1);
-            } else {
-                hashmap.put(ticket.getPassengerId(), 1);
-            }
-        }
-        return hashmap;
-    }
-
     /**
      * TotalCostAndNumberOfTickets() method prints out a report for the total cost of tickets and total number of tickets.
      *
