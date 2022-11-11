@@ -10,6 +10,10 @@ import static com.travelcompany.eshop.dtos.ConsoleReports.customersWithMostTicke
 import static com.travelcompany.eshop.dtos.ConsoleReports.customersWithNoPurchases;
 import static com.travelcompany.eshop.dtos.ConsoleReports.totalCostAndNumberOfTickets;
 import static com.travelcompany.eshop.dtos.ConsoleReports.totalItinerariesPerDestinationAndDeparture;
+import static com.travelcompany.eshop.dtos.FileReports.customersWithMostTicketsAndCostOfPurchasesToFile;
+import static com.travelcompany.eshop.dtos.FileReports.customersWithNoPurchasesToFile;
+import static com.travelcompany.eshop.dtos.FileReports.totalCostAndNumberOfTicketsToFile;
+import static com.travelcompany.eshop.dtos.FileReports.totalItinerariesPerDestinationAndDepartureToFile;
 import com.travelcompany.eshop.model.*;
 import com.travelcompany.eshop.repository.*;
 import com.travelcompany.eshop.util.DataImport;
@@ -52,6 +56,7 @@ public class UseCase {
             System.out.println("\tPress 3: To get a list of the customers who purchased the most tickets and number of purchases.");
             System.out.println("\tPress 4: To get a list of the customers who have not purchased any tickets.");
             System.out.println("\tPress 5: To get all the above lists.");
+            System.out.println("\tPress 6: To get all the above lists in files.");
             System.out.println("\tPress 0: To exit.");
             try {
                 userChoice = scanner.nextInt();
@@ -60,7 +65,7 @@ public class UseCase {
                 String badInput = scanner.next();
                 System.out.println("Bad input: '" + badInput + "' Please try again.\n");
             }
-        } while (userChoice < 0 || userChoice > 5);
+        } while (userChoice < 0 || userChoice > 6);
 
         // Based on the user choose we report back or exit the program.
         switch (userChoice) {
@@ -74,6 +79,12 @@ public class UseCase {
                 totalItinerariesPerDestinationAndDeparture(itineraries);
                 customersWithMostTicketsAndCostOfPurchases(tickets, customers);
                 customersWithNoPurchases(tickets, customers);
+            }
+            case 6 -> {
+                totalCostAndNumberOfTicketsToFile(tickets);
+                totalItinerariesPerDestinationAndDepartureToFile(itineraries);
+                customersWithMostTicketsAndCostOfPurchasesToFile(tickets, customers);
+                customersWithNoPurchasesToFile(tickets, customers);
             }
             case 0 -> System.out.println("Exiting...");
         }
